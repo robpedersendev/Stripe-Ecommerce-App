@@ -38,10 +38,9 @@ class App extends React.Component {
             },
             () => {
               //Console.log needs to be a second parameter to make sure the actual setState method runs, since this is an Async/await function
-              console.log(this.state);
+              // console.log(this.state);
             }
           );
-          console.log(this.state);
         });
       } else {
         this.setState({
