@@ -14,10 +14,11 @@ import HomePage from "./pages/homepage/homepage.component.jsx";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up-page/sign-in-and-sign-up-page.component";
+import { auth } from "./firebase/firebase.utils";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
