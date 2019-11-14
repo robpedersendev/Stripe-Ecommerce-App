@@ -8,6 +8,8 @@ import "./header.styles.sass";
 
 import { auth } from "../../firebase/firebase.utils";
 
+import CartIcon from "../cart-icon/cart-icon.component";
+
 const Header = ({ currentUser }) => (
   <div className="header">
     <Link to="/" className="logo-container">
@@ -29,6 +31,7 @@ const Header = ({ currentUser }) => (
           Sign In
         </Link>
       )}
+      <CartIcon />
     </div>
   </div>
 );
