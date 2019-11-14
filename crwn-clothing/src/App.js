@@ -23,26 +23,19 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
+    const { setCurrentUser } = this.props;
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         //Create a new object with the data that we want and need for our application
         userRef.onSnapshot(snapshot => {
-          this.setState(
-            {
-              currentUser: { id: snapshot.id, ...snapshot.data() }
-            },
-            () => {
-              //Console.log needs to be a second parameter to make sure the actual setState method runs, since this is an Async/await function
-              // console.log(this.state);
-            }
-          );
+          setCurrentUser({
+            id: snapshot.id,
+            ...snapshot.data()
+          });
         });
       } else {
-        this.setState({
-          //Sets user to null if the user logs out
-          currentUser: userAuth
-        });
+        setCurrentUser(userAuth);
       }
     });
   }
